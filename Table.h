@@ -1,5 +1,7 @@
 /****************** File:"Table.h" ***************************/
 #include<iostream>
+#include<ostream>
+#include<fstream>
 #include "CardFactory.h"
 #include "Player.h"
 #include "Deck.h"

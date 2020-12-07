@@ -1,5 +1,6 @@
 /****************** File:"CardFactory.h" ***************************/
 #include<iostream>
+#include<vector>
 #include "Deck.h"
 #include "Card.h"
 using namespace std;
@@ -10,7 +11,5 @@ public:
 	Deck getDeck(); //returns a deck with all 104 bean cards
 
 private:
-	CardFactory(const Card* cards[]); //constructor
+	CardFactory(vector<Card>); //constructor
 };
-
-

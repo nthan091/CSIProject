@@ -1,6 +1,3 @@
-// Deck.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 #include "Deck.h"
 
@@ -22,6 +19,6 @@ Card* Deck::draw() {
 	Card* topCard = front(); //return a reference to the first element in the vector
 	//topCard.erase(card.begin()); 
 	//Card.pop_front(); 
-	this->erase(this->begin(), this->begin() + 1); 
-	return topCard; 
+	this->erase(this->begin(), this->begin() + 1);
+	return topCard;
 }

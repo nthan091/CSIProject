@@ -1,7 +1,6 @@
 /************** File:"TradeArea.cpp" *************/
 
 #include "TradeArea.h"
-#include "card.h"
 
 
 TradeArea::TradeArea(istream& s, const CardFactory*) {
@@ -13,20 +12,20 @@ TradeArea::TradeArea(istream& s, const CardFactory*) {
 	list <Card> cards = {};
 	file.read((char*)&tradeArea, sizeof(tradeArea));
 	while (!file.eof()) {
-		std::cout <<tradeArea;
+		std::cout << tradeArea;
 	}
 	file.close();
 
-	numCard = 0; 
+	numCard = 0;
 
 }
 
 TradeArea& TradeArea::operator+=(Card* newC) {
 	//adds the card to the trade area but it does 
-	//not cheak if it is legal to place the card
+	//not check if it is legal to place the card
 	cards.push_back(newC);
 
-	return *this; 
+	return *this;
 
 }
 
@@ -54,7 +53,7 @@ Card* TradeArea::trade(std::string s) {
 		}
 	}
 
-	return card; 
+	return card;
 }
 
 int TradeArea::numCards() {
@@ -65,6 +64,6 @@ int TradeArea::numCards() {
 
 ostream& operator << (ostream& output, Card C)
 {
-	output << C.getName()<<"\n";
+	output << C.getName() << "\n";
 	return output;
 }

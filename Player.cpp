@@ -1,6 +1,7 @@
 /****************** File:"Player.cpp" ***************************/
-
-#include "player.h"
+#include<ostream>
+#include<fstream>
+#include "Player.h"
 
 Player::Player(std::string& pn) {
 	//constructor that creates a player with a given name
@@ -35,7 +36,7 @@ std::string Player::getname() {
 
 int Player::getNumCoins() {
 	// get the number of coins currently held by the player.
-	return .getCoinsPerCard();
+	return.getCoinsPerCard();
 }
 
 Player& Player::operator+=(int coinNum) {
@@ -44,7 +45,7 @@ Player& Player::operator+=(int coinNum) {
 	coins = coinNum;
 
 	return *this;
-	
+
 }
 
 int Player::getMaxNumChains() {
@@ -66,7 +67,7 @@ int Player::getNumChains() {
 
 	return chains.size();
 
-	
+
 }
 
 int& Player::operator[](int i) {
@@ -78,10 +79,10 @@ void Player::buyThirdChain() {
 	// adds an empty third chain to the player for three coins. 
 	//The functions reduces the coin count for the player by two.
 	//If the player does not have enough coins then an exception NotEnoughCoins is thrown.
-	chains.push_back(); 
+	chains.push_back();
 	if (player.getCoinsPerCard(coins) < 2) {
 		NotEnoughCoins NEC;
-		throw (NEC); 
+		throw (NEC);
 
 	}
 
@@ -97,7 +98,7 @@ void Player::printHand(std::ostream& s, bool arg) {
 	}
 	else {
 		for (int i = 0; i < player.size(); i++) {
-			cout<< player[i].getname();
+			cout << player[i].getname();
 		}
 	}
 }

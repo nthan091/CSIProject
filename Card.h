@@ -1,19 +1,19 @@
 #pragma once
 #include <iostream>
-using namespace std; 
+using namespace std;
 
 class Card {
-public: 
-	virtual int getCoinsPerCard(int); 
-	virtual string getName(); 
-	virtual void print(ostream& out); 
+public:
+	virtual int getCoinsPerCard(int);
+	virtual string getName();
+	virtual void print(ostream& out);
 };
 
 //Blue
 class Blue : public Card {
-public: 
-	int getCoinsPerCard(int coins); 
-	string getName(); 
+public:
+	int getCoinsPerCard(int coins);
+	string getName();
 	void print(ostream& out);
 };
 
@@ -45,7 +45,7 @@ public:
 class soy : public Card {
 public:
 	int getCoinsPerCard(int coins);
-	string getName(); 
+	string getName();
 	void print(ostream& out);
 };
 

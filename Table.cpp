@@ -40,13 +40,13 @@ bool Table::win(std::string&) {
 
 // Prints the top card of the player's hand or all of the player's hand
 void Table::printHand(bool) {
-	Hand hand;
+	Hand* hand;
 	if (false) {
-		cout << hand.top() << endl;
+		cout << hand->top() << endl;
 	}
 	else if (true) {
 		for (int i = 0; i < hand.length(); i++) {
-			cout << hand.top() << endl;
+			cout << hand->top() << endl;
 		}
 	}
 }

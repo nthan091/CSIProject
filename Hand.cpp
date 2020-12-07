@@ -1,6 +1,4 @@
-/****************** File:"Hand.cpp" ***************************/
-
-#include "hand.h"
+#include "Hand.h"
 
 
 Hand::Hand(istream&, const CardFactory*) {
@@ -11,7 +9,7 @@ Hand::Hand(istream&, const CardFactory*) {
 	Hand* hand;
 	file.read((char*)&hand, sizeof(hand));
 	while (!file.eof()) {
-		cout<<&hand;
+		cout << &hand;
 	}
 	file.close();
 }
@@ -20,14 +18,14 @@ Hand& Hand::operator+=(Card* c) {
 	// adds the cards to the rear of the hand
 	hands.push_back(c);
 
-	return *this; 
+	return *this;
 }
 
 Card* Hand::play() {
 	// returns and removes the top card from the players hand 
-	Card * card = hands.front();
+	Card* card = hands.front();
 
-	return card; 
+	return card;
 }
 
 Card* Hand::top() {

@@ -1,8 +1,5 @@
-// Project.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
-#include "Project.h"
+#include "Card.h"
 
 //BLUE/////////////
 int Blue::getCoinsPerCard(int coins) {
@@ -32,11 +29,11 @@ int Blue::getCoinsPerCard(int coins) {
 } //closes 
 
 string Blue::getName() {
-	return "Blue"; 
+	return "Blue";
 }
 
 void Blue::print(ostream& out) {
-	out << "B"; 
+	out << "B";
 }
 
 
@@ -228,7 +225,7 @@ string Red::getName() {
 }
 
 void Red::print(ostream& out) {
-	out << "R"; 
+	out << "R";
 }
 
 

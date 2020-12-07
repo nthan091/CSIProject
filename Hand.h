@@ -6,10 +6,10 @@
 #include <iomanip>
 #include "Card.h"
 #include "CardFactory.h"
-using namespace std; 
+using namespace std;
 
 class Hand {
-private: 
+private:
 	vector <Card*> hands = {};
 public:
 	Hand(istream&, const CardFactory*); //constructor 
@@ -21,4 +21,3 @@ public:
 	//and the insertion operator (friend) to print Hand on an std::ostream. 
 	//The hand should print all the cards in order.
 };
-

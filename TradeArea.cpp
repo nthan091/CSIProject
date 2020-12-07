@@ -1,3 +1,5 @@
+/************** File:"TradeArea.cpp" *************/
+
 #include "TradeArea.h"
 #include "card.h"
 

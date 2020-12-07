@@ -1,3 +1,5 @@
+/****************** File:"Player.cpp" ***************************/
+
 #include "player.h"
 
 Player::Player(std::string& pn) {

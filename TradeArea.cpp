@@ -1,6 +1,8 @@
 /************** File:"TradeArea.cpp" *************/
 
+#include <string>
 #include "TradeArea.h"
+#include "card.h"
 
 
 TradeArea::TradeArea(istream& s, const CardFactory*) {
@@ -12,20 +14,20 @@ TradeArea::TradeArea(istream& s, const CardFactory*) {
 	list <Card> cards = {};
 	file.read((char*)&tradeArea, sizeof(tradeArea));
 	while (!file.eof()) {
-		std::cout << tradeArea;
+		std::cout <<tradeArea;
 	}
 	file.close();
 
-	numCard = 0;
+	numCard = 0; 
 
 }
 
 TradeArea& TradeArea::operator+=(Card* newC) {
 	//adds the card to the trade area but it does 
-	//not check if it is legal to place the card
+	//not cheak if it is legal to place the card
 	cards.push_back(newC);
 
-	return *this;
+	return *this; 
 
 }
 
@@ -34,9 +36,9 @@ bool TradeArea::legal(Card* newC) {
 	// i.e. a card of the same bean is already in the TradeArea
 
 	//list <Card, allocator<Card> >card::iterator curr;
-
-	for (int i = 0; i < cards.size(); i++) {
-		if (newC->getName() == cards[i].getName()) {
+	bool legal = false;
+	for (auto & it :cards) {
+		if (newC->getName() == it->getName()) {
 			return true;
 		}
 	}
@@ -46,14 +48,20 @@ bool TradeArea::legal(Card* newC) {
 
 Card* TradeArea::trade(std::string s) {
 	//removes a card of the corresponding bean name from the TradeArea
-	Card* card;
-	for (int i = 0; i < cards.size(); i++) {
-		if (s == cards[i].getname()) {
-			card = cards.remove(i);
+	list<Card*>::iterator curr;
+	bool flag = false; 
+	for (curr = cards.begin(); curr != cards.end(); curr++) {
+		if (s == (*curr)->getName()) {
+			flag = true; 
+			auto card = *curr; 
+			curr = cards.erase(curr);
+			return card; 
 		}
 	}
 
-	return card;
+	cout << "Null pointer error is returned"; 
+
+	return nullptr; 
 }
 
 int TradeArea::numCards() {
@@ -62,8 +70,12 @@ int TradeArea::numCards() {
 	return numCard;
 }
 
-ostream& operator << (ostream& output, Card C)
+ostream& operator << (ostream& load, const TradeArea& T)
 {
-	output << C.getName() << "\n";
-	return output;
+	list<Card*> ::iterator curr;
+	for (curr = cards->begin(); curr != cards->end(); curr++) {
+		load << cards->getName(); 
+	}
+
+	return load;
 }

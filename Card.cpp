@@ -259,3 +259,4 @@ string garden::getName() {
 void garden::print(ostream& out) {
 	out << "g";
 }
+

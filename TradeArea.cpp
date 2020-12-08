@@ -1,5 +1,4 @@
 /************** File:"TradeArea.cpp" *************/
-
 #include <string>
 #include "TradeArea.h"
 #include "card.h"
@@ -14,11 +13,11 @@ TradeArea::TradeArea(istream& s, const CardFactory*) {
 	list <Card> cards = {};
 	file.read((char*)&tradeArea, sizeof(tradeArea));
 	while (!file.eof()) {
-		std::cout <<tradeArea;
+		std::cout << tradeArea;
 	}
 	file.close();
 
-	numCard = 0; 
+	numCard = 0;
 
 }
 
@@ -27,7 +26,7 @@ TradeArea& TradeArea::operator+=(Card* newC) {
 	//not cheak if it is legal to place the card
 	cards.push_back(newC);
 
-	return *this; 
+	return *this;
 
 }
 
@@ -37,7 +36,7 @@ bool TradeArea::legal(Card* newC) {
 
 	//list <Card, allocator<Card> >card::iterator curr;
 	bool legal = false;
-	for (auto & it :cards) {
+	for (auto& it : cards) {
 		if (newC->getName() == it->getName()) {
 			return true;
 		}
@@ -49,19 +48,19 @@ bool TradeArea::legal(Card* newC) {
 Card* TradeArea::trade(std::string s) {
 	//removes a card of the corresponding bean name from the TradeArea
 	list<Card*>::iterator curr;
-	bool flag = false; 
+	bool flag = false;
 	for (curr = cards.begin(); curr != cards.end(); curr++) {
 		if (s == (*curr)->getName()) {
-			flag = true; 
-			auto card = *curr; 
+			flag = true;
+			auto card = *curr;
 			curr = cards.erase(curr);
-			return card; 
+			return card;
 		}
 	}
 
-	cout << "Null pointer error is returned"; 
+	cout << "Null pointer error is returned";
 
-	return nullptr; 
+	return nullptr;
 }
 
 int TradeArea::numCards() {
@@ -72,10 +71,11 @@ int TradeArea::numCards() {
 
 ostream& operator << (ostream& load, const TradeArea& T)
 {
+	list<Card*>* cards;
+	Card* c;
 	list<Card*> ::iterator curr;
 	for (curr = cards->begin(); curr != cards->end(); curr++) {
-		load << cards->getName(); 
+		load << c->getName();
 	}
-
 	return load;
 }

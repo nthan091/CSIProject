@@ -48,8 +48,10 @@ CardFactory* CardFactory::getFactory()
 // Returns a shuffled deck with all 104 bean cards
 Deck CardFactory::getDeck()
 {
-	Deck newDeck = new Deck();
+	Deck* newDeck;
 	std::random_device rand;
 	std::mt19937 shuff(rand());
-	return std::shuffle(newDeck.begin(), newDeck.end(), shuff);
+	std::shuffle(newDeck->begin(), newDeck->end(), shuff);
+
+	return newDeck;
 }

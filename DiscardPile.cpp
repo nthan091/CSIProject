@@ -1,7 +1,8 @@
-// DiscardPile.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <vector>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
 #include "DiscardPile.h"
 #include "Card.h"
 #include "CardFactory.h"
@@ -9,8 +10,9 @@
 
 //load a new game
 
-DiscardPile::DiscardPile(istream& in) {
+DiscardPile::DiscardPile(istream& in, const CardFactory*) {
 	string tempCard;
+	vector <Card*> cardVec;
 	in >> tempCard;
 	if (tempCard == "Blue") {
 		Card* tempC = new Blue();
